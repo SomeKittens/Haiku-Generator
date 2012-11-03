@@ -1,4 +1,4 @@
-import random, timeit
+import random, timeit, sys
 
 def getLine(syllablesRemaining, s):
 	while syllablesRemaining > 0:
@@ -9,13 +9,14 @@ def getLine(syllablesRemaining, s):
 	return s
 
 def getLineRecursive(syllablesRemaining, s):
-	s = ""
-	while syllablesRemaining > 0:
+	#base case
+	if syllablesRemaining == 0:
+		return
+	else:
 		toGet = random.randint(1,syllablesRemaining)
-		syllablesRemaining -= toGet
 		idx = random.randint(0,len(words[toGet])-1)
 		s += words[toGet][idx]
-	return s
+		return getLineRecursive(syllablesRemaining - toGet, s)
 
 fIn = open('HaikuSource.txt','r')
 lineNum = 186524
@@ -31,8 +32,12 @@ while lineNum > 0:
 		words[syllables-1].append(s)
 
 #Timer for iterative solution
-iterative = timeit.Timer('getLine(syllables, s)', setup='syllables = 5; s = ""')#Yikes, semicolons!
+iterative = timeit.Timer('getLine(syllables, s)', setup='syllables = 5; s = ""; from __main__ import getLine')#Yikes, semicolons!
 #Timer for recursive solution
-recursive = timeit.Timer('getLineRecursive(syllables, s)', setup='syllables = 5; s = ""')
+recursive = timeit.Timer('getLineRecursive(syllables, s)', setup='syllables = 5; s = ""; from __main__ import getLineRecursive')
 
-
+#Default times to run is one million, that should suffice.
+sys.stdout.write("Iterative: ")
+print(iterative.timeit())
+sys.stdout.write("Recursive: ")
+print(recursive.timeit())
