@@ -10,7 +10,7 @@ def getLine(syllablesRemaining):
 	return s
 
 fIn = open('HaikuSource.txt','r')
-lineNum = 186524
+lineNum = 187175
 words = [[],[],[],[],[],[],[]]
 #Initalize arrays
 while lineNum > 0:
