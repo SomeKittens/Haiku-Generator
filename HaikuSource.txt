@@ -1,10 +1,10 @@
-acappella 4
-afortiori 5
-agogo 3
-aposteriori 6
-apriori 4
-atempo 3
-aplenty 3
+a cappella 4
+a fortiori 5
+a gogo 3
+a posteriori 6
+a priori 4
+a tempo 3
+a plenty 3
 Aalborg 2
 Aalto 2
 aardvark 2
