@@ -19,7 +19,7 @@ def getLineRecursive(syllablesRemaining, s):
 		return getLineRecursive(syllablesRemaining - toGet, s)
 
 fIn = open('HaikuSource.txt','r')
-lineNum = 186524
+lineNum = 187175
 words = [[],[],[],[],[],[],[]]
 #Initalize arrays
 while lineNum > 0:
